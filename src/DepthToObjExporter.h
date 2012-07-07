@@ -44,7 +44,8 @@ public:
 			unsigned short * depthPixels = depth.getPixels();
 			for (int y = 0; y < depthHeight; y++) {// WRITE VERTICES
 				for (int x = 0; x < depthWidth; x++) {
-					obj << "v " << x << " " << -y << " " << ofToString(float(-depthPixels[y * depthWidth + x])/10) << endl;
+					obj << "v " << x << " " << -y << " " << ofToString(float(-depthPixels[y * depthWidth + x])/10) << "#" << ofToString(y * depthWidth + x) << endl;
+					
 				}
 			}
 			obj << endl << endl;
@@ -73,10 +74,10 @@ public:
 					int c = (y + 1)* depthWidth + x ;
 					int d = c + 1 ;
 					if (depthPixels[a] > 0 && depthPixels[b] > 0 && depthPixels[c] > 0) {
-						obj << "f " << toObjFaceIndex(a)  << " " << toObjFaceIndex(b)<< " " << toObjFaceIndex(c)<< endl;						
+						obj << "f " << toObjFaceIndex(a + 1)  << " " << toObjFaceIndex(b + 1)<< " " << toObjFaceIndex(c + 1)<< endl;						
 					}
 					if (depthPixels[a] > 0 && depthPixels[d] > 0 && depthPixels[c] > 0) {
-						obj << "f " << toObjFaceIndex(a)  << " " << toObjFaceIndex(c)<< " " << toObjFaceIndex(d)<< endl;
+						obj << "f " << toObjFaceIndex(a + 1)  << " " << toObjFaceIndex(c + 1)<< " " << toObjFaceIndex(d + 1)<< endl;
 					}
 				}
 			}
