@@ -1,3 +1,21 @@
 build/
-bin/
+bin/data/exported/
+bin/data/openni
+bin/data/recordings
+*.app
+*.obj
+*.mat
+*.jpg
+*.oni
 .DS_Store
+
+
+#XCode
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+#XCode 4
+xcuserdata
+*.xcworkspace

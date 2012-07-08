@@ -25,6 +25,8 @@ public:
 	void mouseReleased(int x, int y, int button);
 	void windowResized(int w, int h);
 
+	void saveFrameRange(bool saveRange = true);
+	int getNextFile(string path, string name,string ext);
 	ofxOpenNI openNIPlayer;
 	
 	bool bDrawDepth ;
@@ -33,7 +35,21 @@ public:
 	bool bSaveObj;
 	int frameNum;
 	
+	DepthToObjExporter exporter;
+
+	int inFrame, outFrame;
 	
+	ofMesh mesh;
+	bool bDrawMesh;
+	
+	float transZ;
+	
+	string oniPath;
+	
+	float zScale; 
+	ofEasyCam cam;
+	ofVec3f center;
+	bool bSetCenter;
 };
 
 #endif
